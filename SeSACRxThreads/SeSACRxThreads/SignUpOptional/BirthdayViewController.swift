@@ -66,6 +66,10 @@ class BirthdayViewController: UIViewController {
   
     let nextButton = PointButton(title: "가입하기")
     
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
