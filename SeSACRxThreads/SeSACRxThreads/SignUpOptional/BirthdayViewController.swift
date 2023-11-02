@@ -73,6 +73,10 @@ class BirthdayViewController: UIViewController {
     let month = BehaviorSubject(value: 12)
     let day = BehaviorSubject(value: 24)
     
+    let buttonColor = BehaviorSubject(value: UIColor.red)
+    let buttonEnable = BehaviorSubject(value: false)
+    
+    
     let disposeBag = DisposeBag()
     
     
@@ -90,18 +94,41 @@ class BirthdayViewController: UIViewController {
     
     
     func bind() {
+        
+        buttonEnable
+            .bind(to: nextButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
         birthDayPicker.rx.date
             .bind(to: birthday)
             .disposed(by: disposeBag)
         
+        buttonColor
+            .bind(to: nextButton.rx.backgroundColor)
+            .disposed(by: disposeBag)
+
+        
         birthday
             .subscribe(with: self) { owner, date in
                 let component = Calendar.current.dateComponents([.year, .month, .day], from: date)
-                
                 owner.year.onNext(component.year!)
                 owner.month.onNext(component.month!)
                 owner.day.onNext(component.day!)
             }
+            .disposed(by: disposeBag)
+        
+        year
+            .observe(on: MainScheduler.instance)
+            .map({ year in
+                let component = Calendar.current.dateComponents([.year], from: Date())
+                let age = component.year! - year
+                return age > 16
+            })
+            .subscribe(with: self, onNext: { owner, value in
+                let color = value ? UIColor.blue : UIColor.red
+                owner.buttonColor.onNext(color)
+                owner.buttonEnable.onNext(value)
+            })
             .disposed(by: disposeBag)
         
         year
@@ -113,6 +140,7 @@ class BirthdayViewController: UIViewController {
             .disposed(by: disposeBag)
         
         month
+            .observe(on: MainScheduler.instance)
             .map { "\($0)월" }
             .subscribe(with: self) { owner, value in
                 owner.monthLabel.text = value
@@ -120,6 +148,7 @@ class BirthdayViewController: UIViewController {
             .disposed(by: disposeBag)
         
         day
+            .observe(on: MainScheduler.instance)
             .map { "\($0)일" }
             .bind(to: dayLabel.rx.text)
             .disposed(by: disposeBag)
