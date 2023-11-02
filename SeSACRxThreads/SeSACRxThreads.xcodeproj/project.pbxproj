@@ -30,6 +30,7 @@
 		041280782AF1D14000972552 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280772AF1D14000972552 /* Resource.swift */; };
 		0F7EFF592AF3BC5F00DBA90B /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF582AF3BC5F00DBA90B /* BirthdayViewModel.swift */; };
 		0F7EFF5B2AF3BC7200DBA90B /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF5A2AF3BC7200DBA90B /* PhoneViewModel.swift */; };
+		0F7EFF602AF3D2A900DBA90B /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF5F2AF3D2A900DBA90B /* NicknameViewModel.swift */; };
 		0FECC7CA2AF258EE00A114DB /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FECC7C92AF258EE00A114DB /* Extension+String.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		041280772AF1D14000972552 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		0F7EFF582AF3BC5F00DBA90B /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
 		0F7EFF5A2AF3BC7200DBA90B /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
+		0F7EFF5F2AF3D2A900DBA90B /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
 		0FECC7C92AF258EE00A114DB /* Extension+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,9 +194,9 @@
 		0412806D2AEFAD0F00972552 /* SignUpOptional */ = {
 			isa = PBXGroup;
 			children = (
+				0F7EFF5E2AF3D23B00DBA90B /* Nickname */,
 				0F7EFF5D2AF3BC8B00DBA90B /* Phone */,
 				0F7EFF5C2AF3BC7700DBA90B /* Birthday */,
-				041280722AEFAD4B00972552 /* NicknameViewController.swift */,
 			);
 			path = SignUpOptional;
 			sourceTree = "<group>";
@@ -215,6 +217,15 @@
 				041280702AEFAD3D00972552 /* PhoneViewController.swift */,
 			);
 			path = Phone;
+			sourceTree = "<group>";
+		};
+		0F7EFF5E2AF3D23B00DBA90B /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+				041280722AEFAD4B00972552 /* NicknameViewController.swift */,
+				0F7EFF5F2AF3D2A900DBA90B /* NicknameViewModel.swift */,
+			);
+			path = Nickname;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +379,7 @@
 				0FECC7CA2AF258EE00A114DB /* Extension+String.swift in Sources */,
 				0F7EFF592AF3BC5F00DBA90B /* BirthdayViewModel.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
+				0F7EFF602AF3D2A900DBA90B /* NicknameViewModel.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
 				041280262AEF9BAB00972552 /* SceneDelegate.swift in Sources */,
